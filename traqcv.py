@@ -7,6 +7,7 @@ import hashlib
 import pytesseract as cd
 from PIL import Image
 from groq import Groq
+import asyncio
 
 def ck():
     df = sqlite3.connect("ju.db")
@@ -116,7 +117,7 @@ if ec == "Home":
         if chat.lower == "":
             dc.write("error pls type your text")
         else:
-            cs = Tra.translate(chat, dest= cd[mc])
+            cs = asyncio.run(Tra.translate(chat, dest= cd[mc]))
             mca = dc.text_area(label= "success", value= cs.text)
             dc.session_state.his.append({"Type": chat,
                                          "Result": cs.text,
