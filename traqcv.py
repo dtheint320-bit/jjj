@@ -68,16 +68,6 @@ if ec == "Home":
     chat = dc.text_area("Enter", value= dc.session_state.chat)
     dc.write("choose your language to translate")
 
-    c = dc.file_uploader("choose yor image to text", type= ["jpg", "jfif", "png", "jpeg"]
-                         )
-
-    if dc.button("Image to text"):
-        if c is not None:
-            cd.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
-            img = Image.open(c)
-            fr = cd.image_to_string(img)
-            dc.session_state.chat = fr
-            dc.rerun()
 
     v = dc.file_uploader(label= "Voice file to text", type= ["m4a", "flac", "mp3", "mp4", "wav"])
 
