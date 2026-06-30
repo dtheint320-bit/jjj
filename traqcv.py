@@ -97,7 +97,15 @@ if ec == "Home":
     "Turkey": "tr",
     "Polish": "pl",
     "Romanian": "ro",
-    "Latin": "la"
+    "Latin": "la",
+    "Persian": "fa",
+    "Filipino": "tl",
+    "Japan": "ja",
+    "Latvian": "lv",
+    
+    "Vietnam": "vi",
+    "Zulu": "zu",
+    "Swedish": "sv"
 }
 
     mc = dc.selectbox("select your language", list(cd.keys()))
