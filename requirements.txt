@@ -1,5 +1,6 @@
 googletrans
 streamlit
 groq
-pytesseract
 Pillow
+easyocr
+numpy
