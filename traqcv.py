@@ -68,6 +68,23 @@ if ec == "Home":
     chat = dc.text_area("Enter", value= dc.session_state.chat)
     dc.write("choose your language to translate")
 
+    c = dc.file_uploader("choose yor image to text", type=["jpg", "jpeg", "png"])
+
+    if dc.button("Image to text"):
+        if c is not None:
+            img = Image.open(c)
+        
+        # --- EasyOCR သုံးပြီး ပုံဖတ်မည့်အပိုင်း ---
+            import easyocr
+            import numpy as np
+        
+            reader = easyocr.Reader(['en']) # အင်္ဂလိပ်စာဖတ်ရန် သတ်မှတ်ခြင်း
+            bounds = reader.readtext(np.array(img))
+            fr = " ".join([b[1] for b in bounds]) # ဖတ်လို့ရသမျှစာတွေကို စာကြောင်းတစ်ခုတည်းဖြစ်အောင် ပေါင်းခြင်း
+        # --------------------------------------------------
+        
+            dc.session_state.chat = fr
+            dc.rerun()
 
     v = dc.file_uploader(label= "Voice file to text", type= ["m4a", "flac", "mp3", "mp4", "wav"])
 
