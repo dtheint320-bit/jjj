@@ -4,7 +4,6 @@ import json
 import os
 import sqlite3
 import hashlib
-import pytesseract as cd
 from PIL import Image
 from groq import Groq
 import asyncio
